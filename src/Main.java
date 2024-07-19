@@ -1,28 +1,23 @@
-import java.util.NoSuchElementException;
-
 public class Main {
     public static void main(String[] args) {
-        Fila<Integer> fila = new Fila<>();
+        Familia<String> familia = new Familia<>();
 
-        fila.enfileirar(1);
-        fila.enfileirar(2);
-        fila.enfileirar(3);
+        familia.adicionarMembro("Arnaldo");
+        familia.adicionarMembro("Costa");
+        familia.adicionarMembro("Neto");
 
-        System.out.println("Fila está vazia? " + fila.isEmpty());
+        System.out.println("Membro no índice 0: " + familia.getMembro(0));
 
-        System.out.println("Desenfileirado: " + fila.desenfileirar());
-        System.out.println("Desenfileirado: " + fila.desenfileirar());
+        familia.removerMembro(0);
 
-        fila.enfileirar(4);
+        System.out.println("Membros da família: " + familia.listarMembros());
 
-        System.out.println("Desenfileirado: " + fila.desenfileirar());
-        System.out.println("Desenfileirado: " + fila.desenfileirar());
+        System.out.println("Número de membros: " + familia.getNumeroDeMembros());
+        System.out.println("Família está vazia? " + familia.estaVazia());
 
-        try {
-            System.out.println("Desenfileirado: " + fila.desenfileirar());
-        } catch (NoSuchElementException e) {
-            System.out.println("Fila está vazia, não há elementos para desenfileirar.");
-        }
+        familia.removerMembro(0);
+        familia.removerMembro(0);
+
+        System.out.println("Família está vazia? " + familia.estaVazia());
     }
 }
-
